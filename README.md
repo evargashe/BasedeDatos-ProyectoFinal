@@ -16,7 +16,7 @@ Paginas web-Venta de bicicletas
 
 ## Equipo de Desarrollo
 
-- **Caira Aguilar Gonzalo Alejandro** - Correo : gcairaa@unsa.edu.pe
-- **Yanqui Vera Henry Aron** - Correo : hyanquiv@unsa.edu.pe
+- ** ** - Correo : 
+- ** ** - Correo : 
 - **Vargas Herhuay Edwar Jhoel** - Correo : evargashe@unsa.edu.pe
-- **Bustamante Torres Luis Angel** - Correo : lbustamantet@unsa.edu.pe
+- ** ** - Correo : 
