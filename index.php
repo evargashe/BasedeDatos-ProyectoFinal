@@ -7,5 +7,6 @@ while($row=mysqli_fetch_array($resultado))
 {
   echo "id_producto: ".$row['id_producto'];
   echo "precio: ".$row['precio'];
+  echo "<br>";
 }
 ?>
