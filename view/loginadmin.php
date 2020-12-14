@@ -8,17 +8,17 @@
 </head>
 <body>
     <h1>Login Administrador</h1>
-    <form action="" method="post" class="form-control mb-2">
+    <form action="../controlador/validatorlogin.php" method="post" class="form-control mb-2">
         <div class="form-group row">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                <input type="email" name="email"class="form-control" id="email" placeholder="email">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="password" name="password"class="form-control" id="password" placeholder="password">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Sign in</button>
