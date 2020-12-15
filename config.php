@@ -1,7 +1,7 @@
 <?php
 $conexion = mysqli_connect(
-    'localhost',
+    'localhost:8080',
     'root',
-    '') or die ("problemas en la conexion");
+    'andre123') or die ("problemas en la conexion");
 mysqli_select_db($conexion,'bicicleta') or die ("no se pudo conectar a la base de datos o no existe");
 ?>
