@@ -14,7 +14,6 @@
     <title>Mostrar bicicleta freestyle</title>
 </head>
 <body>
-
     <?php
         $conexion = mysqli_connect(
             'localhost:8080',

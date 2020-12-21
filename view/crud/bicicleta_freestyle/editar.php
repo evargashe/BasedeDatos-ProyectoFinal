@@ -95,7 +95,7 @@
 				
 				<div class="col-md-12 pull-right">
 				<hr>
-					<button type="submit" class="btn btn-success">Actualizar datos</button>
+				<button type="submit" class="btn btn-success">Actualizar datos</button>
 				</div>
 				<?php } ?>
 				</form>

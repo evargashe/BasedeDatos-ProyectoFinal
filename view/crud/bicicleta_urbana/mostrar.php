@@ -65,7 +65,7 @@
                         <td> <?php echo $extra; ?></td>
                         <td>
                         <a href="crud/bicicleta_urbana/editar.php?id_producto=<?php echo $id_producto;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="crud/bicicleta_urbana/eliminar.php?id=<?php echo $id_producto;?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        <a href="crud/bicicleta_urbana/eliminar.php?id_producto=<?php echo $id_producto;?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>
                     <?php } ?>
