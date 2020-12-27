@@ -10,12 +10,10 @@
     <link rel="stylesheet" href="css/custom.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-    <title>Mostrar bicicleta montañera</title>
+    <title>Document</title>
 </head>
 <body>
-
-    <?php
+<?php
         $conexion = mysqli_connect(
             'localhost:8080',
             'root',
@@ -27,13 +25,13 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Listado de  <b>Bicicleta Montañera</b></h2></div>
+                    <div class="col-sm-8"><h2>Listado de  <b>Bicicleta Freestyle</b></h2></div>
                 </div>
             </div>
 
             <?php
             
-            $consulta="call mostrar_bici_montañera()";
+            $consulta="call mostrar_bici_freestyle()";
             $r= mysqli_query($conexion,$consulta);
 
             ?>
@@ -44,24 +42,16 @@
                         <th>PRECIO</th>
                         <th>COLOR</th>
                         <th>T. MATERIAL</th>
-                        <th>OBJETO EXTRA</th>
-                        <th>Foto</th>
-                        <th>Acciones</th>
+                        <th>Action</th>
+                        <!-- <th>Imagen</th> -->
                     </tr>                        
                     <?php
                         while($row=mysqli_fetch_array($r))
                         {
-                            if($row['foto']!='images.jpg'){
-                                $foto='img/uploader/'.$row['foto'];
-                            }
-                            else{
-                                $foto='img/images.jpg';
-                            }
                             $id_producto=$row['id_producto'];
                             $precio=$row['precio'];
                             $color=$row['color'];
                             $material=$row['material'];
-                            $extra=$row['objeto_extra'];
                         
                         ?>
                     <tr>
@@ -69,12 +59,20 @@
                         <td> <?php echo $precio; ?></td>
                         <td> <?php echo $color; ?></td>
                         <td> <?php echo $material; ?></td>
-                        <td> <?php echo $extra; ?></td>
-                        <td><img src="<?php echo $foto;?>" alt="<?php echo $row['foto'];?>"></td>
+                        <!-- <td>
+                        <form action="crud/bicicleta_freestyle/uploader.php" method="POST" enctype="multipart/form-data">
+                        Añadir imagen: <input name="archivo" id="archivo" type="file"/>
+                        <input type="submit" name="subir" value="Subir imagen"/>
+                        </form>
+                        </td> -->
                         <td>
-                        <a href="editar.php?id_producto=<?php echo $id_producto;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="crud/bicicleta_montañera/eliminar.php?id_producto=<?php echo $id_producto;?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <form action="../comprar/freestyle.php" method="POST">
+                                <button>
+                                <a href="../comprar/freestyle.php?id_producto=<?php echo $id_producto;?>">Comprar</a>
+                                </button>
+                            </form>
                         </td>
+                        
                     </tr>
                     <?php } ?>
                         
@@ -85,6 +83,6 @@
                 </tbody>
             </table>
         </div>
-    </div>     
+    </div> 
 </body>
 </html>

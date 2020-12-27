@@ -33,7 +33,7 @@
             <?php
             
             $consulta="call mostrar_bici_freestyle()";
-            $r= mysqli_query($conexion,$consulta);
+            $r= mysqli_query($conexion,$consulta) or die("error");
 
             ?>
             <table class="table table-bordered">
@@ -43,6 +43,7 @@
                         <th>PRECIO</th>
                         <th>COLOR</th>
                         <th>T. MATERIAL</th>
+                        <th>Foto</th>
                         <th>Acciones</th>
                     </tr>                        
                     <?php
@@ -52,15 +53,28 @@
                             $precio=$row['precio'];
                             $color=$row['color'];
                             $material=$row['material'];
-                        
+                            if($row['foto']!='images.jpg'){
+                                $foto='img/uploader/'.$row['foto'];
+                            }
+                            else{
+                                $foto='img/'.$row['foto'];
+                            }
                         ?>
                     <tr>
                         <td> <?php echo $id_producto; ?></td>
                         <td> <?php echo $precio; ?></td>
                         <td> <?php echo $color; ?></td>
                         <td> <?php echo $material; ?></td>
+                        <td><img src="<?php echo $foto;?>" alt="<?php echo $row['foto'];?>"></td>
+
+                        <!-- <td>
+                        <form action="crud/bicicleta_freestyle/uploader.php" method="POST" enctype="multipart/form-data">
+                        Añadir imagen: <input name="archivo" id="archivo" type="file"/>
+                        <input type="submit" name="subir" value="Subir imagen"/>
+                        </form>
+                        </td> -->
                         <td>
-                        <a href="crud/bicicleta_freestyle/editar.php?id_producto=<?php echo $id_producto;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a href="editar.php?id_producto=<?php echo $id_producto;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         <a href="crud/bicicleta_freestyle/eliminar.php?id_producto=<?php echo $id_producto;?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>

@@ -24,9 +24,9 @@
     </li>
 </ul>
 </nav>
-<div id="page"></div>
-</body>
-<script>
+<!-- <div id="page"></div>
+ --></body>
+<!-- <script>
     jQuery(document).ready(function($){
       $("a").click(function(event){
          link=$(this).attr("href");
@@ -46,5 +46,5 @@
       })
 
    })
-</script>
+</script> -->
 </html>

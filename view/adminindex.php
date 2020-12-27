@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if(empty($_SESSION['active']))
+{
+    header('location: ./loginadmin.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +23,9 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" id="insertar" href="crud/insertar.php">Insertar</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="saliradmin.php">Salir</a>
     </li>
 </ul>
 </nav>

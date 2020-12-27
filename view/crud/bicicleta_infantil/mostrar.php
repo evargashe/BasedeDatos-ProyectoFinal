@@ -45,11 +45,18 @@
                         <th>COLOR</th>
                         <th>T. MATERIAL</th>
                         <th>OBJETO EXTRA</th>
+                        <th>Foto</th>
                         <th>Acciones</th>
                     </tr>                        
                     <?php
                         while($row=mysqli_fetch_array($r))
                         {
+                            if($row['foto']!='images.jpg'){
+                                $foto='img/uploader/'.$row['foto'];
+                            }
+                            else{
+                                $foto='img/images.jpg';
+                            }
                             $id_producto=$row['id_producto'];
                             $precio=$row['precio'];
                             $color=$row['color'];
@@ -63,8 +70,10 @@
                         <td> <?php echo $color; ?></td>
                         <td> <?php echo $material; ?></td>
                         <td> <?php echo $extra; ?></td>
+                        <td><img src="<?php echo $foto;?>" alt="<?php echo $row['foto'];?>"></td>
+
                         <td>
-                        <a href="crud/bicicleta_infantil/editar.php?id_producto=<?php echo $id_producto;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a href="editar.php?id_producto=<?php echo $id_producto;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         <a href="crud/bicicleta_infantil/eliminar.php?id_producto=<?php echo $id_producto;?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>

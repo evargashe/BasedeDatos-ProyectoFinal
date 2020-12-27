@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-    <title>Mostrar bicicleta montañera</title>
+    <title>Mostrar bicicleta infantil</title>
 </head>
 <body>
 
@@ -27,13 +27,13 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Listado de  <b>Bicicleta Montañera</b></h2></div>
+                    <div class="col-sm-8"><h2>Listado de  <b>Bicicleta Infantil</b></h2></div>
                 </div>
             </div>
 
             <?php
             
-            $consulta="call mostrar_bici_montañera()";
+            $consulta="call mostrar_bici_infantil()";
             $r= mysqli_query($conexion,$consulta);
 
             ?>
@@ -45,18 +45,11 @@
                         <th>COLOR</th>
                         <th>T. MATERIAL</th>
                         <th>OBJETO EXTRA</th>
-                        <th>Foto</th>
-                        <th>Acciones</th>
+                        <th>Action</th>
                     </tr>                        
                     <?php
                         while($row=mysqli_fetch_array($r))
                         {
-                            if($row['foto']!='images.jpg'){
-                                $foto='img/uploader/'.$row['foto'];
-                            }
-                            else{
-                                $foto='img/images.jpg';
-                            }
                             $id_producto=$row['id_producto'];
                             $precio=$row['precio'];
                             $color=$row['color'];
@@ -70,11 +63,12 @@
                         <td> <?php echo $color; ?></td>
                         <td> <?php echo $material; ?></td>
                         <td> <?php echo $extra; ?></td>
-                        <td><img src="<?php echo $foto;?>" alt="<?php echo $row['foto'];?>"></td>
                         <td>
-                        <a href="editar.php?id_producto=<?php echo $id_producto;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="crud/bicicleta_montañera/eliminar.php?id_producto=<?php echo $id_producto;?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <form action="" method="post">
+                                <a href="">Comprar</a>
+                            </form>
                         </td>
+
                     </tr>
                     <?php } ?>
                         

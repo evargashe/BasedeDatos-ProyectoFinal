@@ -45,18 +45,11 @@
                         <th>COLOR</th>
                         <th>T. MATERIAL</th>
                         <th>OBJETO EXTRA</th>
-                        <th>Foto</th>
-                        <th>Acciones</th>
+                        <th>Action</th>
                     </tr>                        
                     <?php
                         while($row=mysqli_fetch_array($r))
                         {
-                            if($row['foto']!='images.jpg'){
-                                $foto='img/uploader/'.$row['foto'];
-                            }
-                            else{
-                                $foto='img/images.jpg';
-                            }
                             $id_producto=$row['id_producto'];
                             $precio=$row['precio'];
                             $color=$row['color'];
@@ -70,10 +63,10 @@
                         <td> <?php echo $color; ?></td>
                         <td> <?php echo $material; ?></td>
                         <td> <?php echo $extra; ?></td>
-                        <td><img src="<?php echo $foto;?>" alt="<?php echo $row['foto'];?>"></td>
                         <td>
-                        <a href="editar.php?id_producto=<?php echo $id_producto;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="crud/bicicleta_montañera/eliminar.php?id_producto=<?php echo $id_producto;?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <form action="POST">
+                                <a href="">Comprar</a>
+                            </form>
                         </td>
                     </tr>
                     <?php } ?>

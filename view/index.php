@@ -19,6 +19,9 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
       </ul>
+      <form action="">
+        <a class="dropdown-item" href="./cliente.php">Ingresar</a>
+      </form>
       <form class="d-flex">
         <a class="dropdown-item" href="./loginadmin.php">Login Admin</a>
       </form>
