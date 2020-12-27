@@ -17,16 +17,16 @@
 
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="mostrarbicicleta/mostrarfreestyle.php">Mostrar Bicicleta Freestyle</a>
+            <a class="nav-link" href="mostrarfreestyle.php">Mostrar Bicicleta Freestyle</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="mostrarbicicleta/mostrainfantil.php">Mostrar Bicicleta infantil</a>
+            <a class="nav-link" href="mostrainfantil.php">Mostrar Bicicleta infantil</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="mostrarbicicleta/mostrarmontañera.php">Mostrar Bicicleta Montañera</a>
+            <a class="nav-link" href="mostrarmontañera.php">Mostrar Bicicleta Montañera</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="mostrarbicicleta/mostrarurbana.php">Mostrar Bicicleta urbana</a>
+            <a class="nav-link" href="mostrarurbana.php">Mostrar Bicicleta urbana</a>
         </li>
         <ul class="navbar-nav">
             <li class="nav-item">

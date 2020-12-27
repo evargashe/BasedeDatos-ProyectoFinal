@@ -45,11 +45,18 @@
                         <th>COLOR</th>
                         <th>T. MATERIAL</th>
                         <th>OBJETO EXTRA</th>
-                        <th>Action</th>
+                        <th>Foto</th>
+                        <th>Acciones</th>
                     </tr>                        
                     <?php
                         while($row=mysqli_fetch_array($r))
                         {
+                            if($row['foto']!='images.jpg'){
+                                $foto='../crud/bicicleta_infantil/img/uploader/'.$row['foto'];
+                            }
+                            else{
+                                $foto='../crud/bicicleta_infantil/img/images.jpg';
+                            }
                             $id_producto=$row['id_producto'];
                             $precio=$row['precio'];
                             $color=$row['color'];
@@ -63,12 +70,11 @@
                         <td> <?php echo $color; ?></td>
                         <td> <?php echo $material; ?></td>
                         <td> <?php echo $extra; ?></td>
-                        <td>
-                            <form action="" method="post">
-                                <a href="">Comprar</a>
-                            </form>
-                        </td>
+                        <td><img src="<?php echo $foto;?>" alt="<?php echo $row['foto'];?>"></td>
 
+                        <td>
+                        <a href="comprar/infantil.php?id_producto=<?php echo $id_producto;?>" class="comprar" title="comprar" data-toggle="tooltip">Comprar</a>
+                        </td>
                     </tr>
                     <?php } ?>
                         

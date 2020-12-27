@@ -13,6 +13,12 @@
     
     <title>Mostrar bicicleta urbana</title>
 </head>
+<style>
+    img{
+	width: 100%;
+	height: 100%;
+    }
+</style>
 <body>
 
     <?php
@@ -45,31 +51,33 @@
                         <th>COLOR</th>
                         <th>T. MATERIAL</th>
                         <th>OBJETO EXTRA</th>
-                        <th>Action</th>
+                        <th>Foto</th>
+                        <th>Acciones</th>
                     </tr>                        
                     <?php
                         while($row=mysqli_fetch_array($r))
                         {
                             $id_producto=$row['id_producto'];
-                            $precio=$row['precio'];
-                            $color=$row['color'];
-                            $material=$row['material'];
-                            $extra=$row['objeto_extra'];
-                        
+                            if($row['foto']!='images.jpg'){
+                                $foto='../crud/bicicleta_urbana/img/uploader/'.$row['foto'];
+                            }
+                            else{
+                                $foto='../crud/bicicleta_urbana/img/images.jpg';
+                            }
                         ?>
                     <tr>
-                        <td> <?php echo $id_producto; ?></td>
-                        <td> <?php echo $precio; ?></td>
-                        <td> <?php echo $color; ?></td>
-                        <td> <?php echo $material; ?></td>
-                        <td> <?php echo $extra; ?></td>
+                        <td> <?php echo $row['id_producto']; ?></td>
+                        <td> <?php echo $row['precio']; ?></td>
+                        <td> <?php echo $row['color']; ?></td>
+                        <td> <?php echo $row['material']; ?></td>
+                        <td> <?php echo $row['objeto_extra']; ?></td>
+                        <td><img src="<?php echo $foto;?>" alt="<?php echo $row['foto'];?>"></td>
                         <td>
-                            <form action="" method="post">
-                                <a href="">Comprar</a>
-                            </form>
+                        <a href="comprar/urbana.php?id_producto=<?php echo $id_producto;?>" class="comprar" title="comprar" data-toggle="tooltip">Comprar</a>
                         </td>
+                        <?php } ?>
                     </tr>
-                    <?php } ?>
+                    
                         
                 </thead>
                     

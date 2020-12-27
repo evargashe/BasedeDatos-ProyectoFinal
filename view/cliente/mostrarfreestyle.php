@@ -11,10 +11,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-    <title>Mostrar bicicleta montañera</title>
+    <title>Mostrar bicicleta freestyle</title>
 </head>
 <body>
-
     <?php
         $conexion = mysqli_connect(
             'localhost:8080',
@@ -27,14 +26,14 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Listado de  <b>Bicicleta Montañera</b></h2></div>
+                    <div class="col-sm-8"><h2>Listado de  <b>Bicicleta Freestyle</b></h2></div>
                 </div>
             </div>
 
             <?php
             
-            $consulta="call mostrar_bici_montañera()";
-            $r= mysqli_query($conexion,$consulta);
+            $consulta="call mostrar_bici_freestyle()";
+            $r= mysqli_query($conexion,$consulta) or die("error");
 
             ?>
             <table class="table table-bordered">
@@ -44,8 +43,8 @@
                         <th>PRECIO</th>
                         <th>COLOR</th>
                         <th>T. MATERIAL</th>
-                        <th>OBJETO EXTRA</th>
-                        <th>Action</th>
+                        <th>Foto</th>
+                        <th>Acciones</th>
                     </tr>                        
                     <?php
                         while($row=mysqli_fetch_array($r))
@@ -54,19 +53,28 @@
                             $precio=$row['precio'];
                             $color=$row['color'];
                             $material=$row['material'];
-                            $extra=$row['objeto_extra'];
-                        
+                            if($row['foto']!='images.jpg'){
+                                $foto='../crud/bicicleta_freestyle/img/uploader/'.$row['foto'];
+                            }
+                            else{
+                                $foto='../img/'.$row['foto'];
+                            }
                         ?>
                     <tr>
                         <td> <?php echo $id_producto; ?></td>
                         <td> <?php echo $precio; ?></td>
                         <td> <?php echo $color; ?></td>
                         <td> <?php echo $material; ?></td>
-                        <td> <?php echo $extra; ?></td>
+                        <td><img src="<?php echo $foto;?>" alt="<?php echo $row['foto'];?>"></td>
+
+                        <!-- <td>
+                        <form action="crud/bicicleta_freestyle/uploader.php" method="POST" enctype="multipart/form-data">
+                        Añadir imagen: <input name="archivo" id="archivo" type="file"/>
+                        <input type="submit" name="subir" value="Subir imagen"/>
+                        </form>
+                        </td> -->
                         <td>
-                            <form action="POST">
-                                <a href="">Comprar</a>
-                            </form>
+                        <a href="comprar/freestyle.php?id_producto=<?php echo $id_producto;?>" class="comprar" title="comprar" data-toggle="tooltip">Comprar</a>
                         </td>
                     </tr>
                     <?php } ?>

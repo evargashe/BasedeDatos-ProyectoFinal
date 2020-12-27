@@ -31,6 +31,7 @@ if(empty($_SESSION['active']))
             <th>Contraseña</th>
             <th>Email</th>
             <th>Telefono</th>
+            <th>Presupuesto</th>
             <th>Action</th>
         </tr>
             <?php 
@@ -41,7 +42,7 @@ if(empty($_SESSION['active']))
             mysqli_select_db($conexion,'bicicleta') or die ("no se pudo conectar a la base de datos o no existe");
             $dni=$_SESSION['DNI'];
             $consulta="select p.DNI,p.nombres,p.primero_apellido,p.segundo_apellido,p.contraseña,pce.correo_electronico,
-            pt.telefono
+            pt.telefono,u.presupuesto
             from persona p
             inner join persona_correo_electronico pce
             on p.DNI=pce.DNI_persona
@@ -61,6 +62,7 @@ if(empty($_SESSION['active']))
                 $correo_electronico=$data['correo_electronico'];
                 $contraseña=$data['contraseña'];
                 $telefono=$data['telefono'];
+                $telefono=$data['presupuesto'];
             
             ?>
             <tr>
@@ -71,6 +73,7 @@ if(empty($_SESSION['active']))
                 <td><?php echo $data['contraseña']?></td>
                 <td><?php echo $data['correo_electronico']?></td>
                 <td><?php echo $data['telefono']?></td>
+                <th><?php echo $data['presupuesto']?></th>
                 <td>
                 <a href="./actualizardatos.php?DNI=<?php echo $DNI;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
 

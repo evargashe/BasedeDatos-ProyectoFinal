@@ -25,10 +25,10 @@
             $contraseña= $_POST['contraseña'];
             $correo_electronico= $_POST['correo_electronico'];
             $telefono= $_POST['telefono'];
-
+            $presupuesto=$_POST['presupuesto'];
             $consulta= "call registrar_cliente('".$dni."','".$nombres."','".$primero_apellido."',
             '".$segundo_apellido."','".$contraseña."',
-            '".$correo_electronico."','".$telefono."');";
+            '".$correo_electronico."','".$telefono."','".$presupuesto."');";
             $resultado = mysqli_query($conexion,$consulta);
             if($resultado)
             {
@@ -80,6 +80,10 @@
             <div class="form-group col-md-6">
                 <label for="inputPassword4">Password</label>
                 <input type="password" class="form-control m-3" id="contraseña" name="contraseña">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Presupuesto</label>
+                <input type="number" class="form-control m-3" id="presupuesto" name="presupuesto">
             </div>
         </div>
         <div class="form-group">
