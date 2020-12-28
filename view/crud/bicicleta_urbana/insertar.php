@@ -80,6 +80,10 @@
 .imgProductoDelete{
 	width: 175px;
 }
+.container{
+	border: 3px solid black;
+	border-radius: 10px;
+}
 </style>
 <body>
 
@@ -90,14 +94,12 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><h2>Agregar <b>Producto(Bicleta Urbana)</b></h2></div>
-                    <div class="col-sm-4">
-                        <a href="index.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Regresar</a>
-                    </div>
+
                 </div>
             </div>
 
 			<div class="row">
-				<form method="post" action="./crud/bicicleta_urbana/controlador/insertindex.php" enctype="multipart/form-data" >
+				<form method="post" action="controlador/insertindex.php" enctype="multipart/form-data" >
 					<div class="col-md-6">
 						<label>Codigo</label>
 						<input type="text" name="id_producto" id="id_producto" class='form-control' maxlength="100" required >

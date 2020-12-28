@@ -1,22 +1,88 @@
 <?php 
 
 session_start();
-if(!empty($_SESSION['active']))
-{
-    header('location: ../cliente.php');
-}
-?>
-<?php 
-$message="";
+$DNI=$_GET['DNI'];
 $conexion = mysqli_connect(
     'localhost:8080',
     'root',
     'andre123') or die ("problemas en la conexion");
 mysqli_select_db($conexion,'bicicleta') or die ("no se pudo conectar a la base de datos o no existe");
 
+    if(!empty($_POST)){
+        $DNI=$_POST['DNI'];
+        $nombres=$_POST['nombres'];
+        $primero_apellido=$_POST['primero_apellido'];
+        $segundo_apellido=$_POST['segundo_apellido'];
+        $correo_electronico=$_POST['correo_electronico'];
+        $contraseña=$_POST['contraseña'];
+        $telefono=$_POST['telefono'];
+        $presuspuesto=$_POST['presuspuesto'];
 
-$DNI=$_SESSION['DNI'];
-$sql="select p.DNI,p.nombres,p.primero_apellido,p.segundo_apellido,p.contraseña,pce.correo_electronico,u.presupuesto,
+        $sql_update=mysqli_query($conexion,"update persona set contraseña=$contraseña,nombres=$nombres,primero_apellido=$primero_apellido,
+            segundo_apellido=$segundo_apellido where DNI=$DNI") or die ("error2");
+        $sql_update1=mysqli_query($conexion,"update persona_correo_electronico set correo_electronico=$correo_electronico
+        where DNI_persona=$DNI;");
+
+        $sql_update2=mysqli_query($conexion,"update persona_telefono set telefono=$telefono where DNI_persona=$DNI;
+        ");
+
+        $sql_update3=mysqli_query($conexion,"update usuario set presupuesto=$presuspuesto where DNI=$DNI");
+
+
+
+        if($sql_update && $sql_update1 && $sql_update2 && $sql_update3)
+        {
+            echo "se a modificado los datos";
+        }
+        else{
+            echo "no se pudo modificar";
+    }
+    }
+
+
+?>
+<?php 
+/* $message="";
+$conexion = mysqli_connect(
+    'localhost:8080',
+    'root',
+    'andre123') or die ("problemas en la conexion");
+mysqli_select_db($conexion,'bicicleta') or die ("no se pudo conectar a la base de datos o no existe");
+
+if(!empty($_POST)){
+    $DNI= $_POST['DNI'];
+    $nombres= $_POST['nombres'];
+    $primero_apellido= $_POST['primero_apellido'];
+    $segundo_apellido= $_POST['segundo_apellido'];
+    $contraseña= $_POST['contraseña'];
+    $correo_electronico= $_POST['correo_electronico'];
+    $telefono= $_POST['telefono'];
+    $presupuesto= $_POST['presupuesto'];
+
+
+    $sql_update=mysqli_query($conexion,"update persona p set p.contraseña=$contraseña,p.nombres=$nombres,p.primero_apellido=$primero_apellido,
+    p.segundo_apellido=$segundo_apellido where p.DNI=$DNI;
+    update persona_correo_electronico pce set pce.correo_electronico=$correo_electronico
+    where pce.DNI_persona=$DNI;
+    update persona_telefono pt set pt.telefono=$telefono where pt.DNI_persona=$DNI;
+    update usuario u set u.presupuesto=$presupuesto where u.DNI=$DNI;") or die ("error2");
+        
+    if($sql_update)
+    {
+        $message="datos insertados";
+        $class="alert alert-success";
+
+    }
+    else{
+        $message="no se pudo";  
+        $class="alert alert-danger";
+
+    }
+
+
+} */
+
+$sql="select p.DNI,p.nombres,p.primero_apellido,p.segundo_apellido,p.contraseña,pce.correo_electronico,u.presuspuesto,
         pt.telefono
         from persona p
         inner join persona_correo_electronico pce
@@ -25,7 +91,7 @@ $sql="select p.DNI,p.nombres,p.primero_apellido,p.segundo_apellido,p.contraseña
         on p.DNI=pt.DNI_persona
         inner join usuario u
         on p.DNI=u.DNI
-        where p.DNI='$DNI'
+        where p.DNI=$DNI
         group by p.DNI;";
 
 $row2=mysqli_query($conexion,$sql) or die("error3");
@@ -38,8 +104,8 @@ while($row=mysqli_fetch_array($row2))
     $correo_electronico=$row['correo_electronico'];
     $contraseña=$row['contraseña'];
     $telefono=$row['telefono'];
-    $presupuesto=$row['presupuesto'];
-} 
+    $presuspuesto=$row['presuspuesto'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -59,42 +125,44 @@ while($row=mysqli_fetch_array($row2))
 <body>
 
 <div class="container">
-    
-    <form method="post" action="controler/actualizarindex.php">
+    <div>
+        <a href="./datoscliente.php" >Salir</a>
+    </div>
+    <form method="POST">
         <div class="col-md-6">
             <label>DNI</label>
-            <input type="number" id="DNI" name="DNI" class="form-control"  required value="<?php echo $DNI;?>"> 
+            <input type="integer" id="DNI" name="DNI" class="form-control"  value="<?php echo $DNI;?>"> 
         </div>
         <div class="col-md-6">
             <label>Nombres</label>
-            <input type="text" id="nombres" name="nombres" class="form-control" required value="<?php echo $nombres;?>">
+            <input type="text" id="nombres" name="nombres" class="form-control" value="<?php echo $nombres;?>">
         </div>
         <div class="col-md-6">
             <label >Primer apellido</label>
-            <input type="text" id="primero_apellido"name="primer_apellido" class="form-control" required value="<?php echo $primero_apellido;?>">
+            <input type="text" id="primero_apellido"name="primero_apellido" class="form-control"value="<?php echo $primero_apellido;?>">
         </div>
         <div class="col-md-6">
             <label>Segundo Apellido</label>
-            <input type="text" id="segundo_apellido"name="segundo_apellido" class="form-control" required value="<?php echo $segundo_apellido;?>"> 
+            <input type="text" id="segundo_apellido"name="segundo_apellido" class="form-control"value="<?php echo $segundo_apellido;?>"> 
         </div>
         <div class="col-md-6">
             <label>Contraseña</label>
-            <input type="password" id="contraseña"name="contraseña" class="form-control" required >
+            <input type="password" id="contraseña"name="contraseña" class="form-control" >
         </div>
         <div class="col-md-6">
             <label>Email</label>
-            <input type="email" id="correo_electronico"name="correo_electronico" class="form-control" required value="<?php echo $correo_electronico;?>">
+            <input type="email" id="correo_electronico"name="correo_electronico" class="form-control" value="<?php echo $correo_electronico;?>">
         </div>
         <div class="col-md-6">
             <label>Telefono</label>
-            <input type="number" id="telefono"name="telefono" class="form-control" required value="<?php echo $telefono;?>">
+            <input type="integer" id="telefono"name="telefono" class="form-control" value="<?php echo $telefono?>">
         </div>
         <div class="col-md-6">
             <label>Presupuesto</label>
-            <input type="number" id="presupuesto"name="presupuesto" class="form-control" required value="<?php echo $presupuesto;?>">
+            <input type="integer" id="presuspuesto"name="presuspuesto" class="form-control" value="<?php echo $presuspuesto;?>">
         </div>
         <button type="button" class="btn btn-success">Actualizar</button>
     </form>
-</div>
+    
 </body>
 </html>

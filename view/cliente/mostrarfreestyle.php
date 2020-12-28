@@ -13,6 +13,12 @@
     
     <title>Mostrar bicicleta freestyle</title>
 </head>
+<style>
+    img{
+        width: 150px;
+        height: 150px;
+    }
+</style>
 <body>
     <?php
         $conexion = mysqli_connect(
@@ -22,6 +28,9 @@
         mysqli_select_db($conexion,'bicicleta') or die ("no se pudo conectar a la base de datos o no existe");
         
     ?>
+    <div class="col-sm-4">
+                        <a href="./mostrar.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Regresar</a>
+    </div>
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
@@ -29,6 +38,10 @@
                     <div class="col-sm-8"><h2>Listado de  <b>Bicicleta Freestyle</b></h2></div>
                 </div>
             </div>
+            <form action="./buscar_usuario_freestyle.php" method="get">
+                <input type="text" name="busqueda" id="busqueda" placeholder="busque su producto por id">
+                <input type="submit" value="Buscar" class="btn btn-search">
+            </form>
 
             <?php
             

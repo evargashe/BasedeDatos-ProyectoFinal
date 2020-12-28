@@ -13,6 +13,12 @@
     
     <title>Mostrar bicicleta montañera</title>
 </head>
+<style>
+    img{
+        width: 150px;
+        height: 150px;
+    }
+</style>
 <body>
 
     <?php
@@ -22,7 +28,13 @@
             'andre123') or die ("problemas en la conexion");
         mysqli_select_db($conexion,'bicicleta') or die ("no se pudo conectar a la base de datos o no existe");
         
+    ?><div class="col-sm-4">
+                        <a href="../mostrar.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Regresar</a>
+    </div>
+    <?php
+        require_once('insertar.php');
     ?>
+    
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
@@ -38,7 +50,7 @@
 
             ?>
             <table class="table table-bordered">
-                <thead>
+                <thead class="thead-dark">
                     <tr>
                         <th>ID PRODUCTO</th>
                         <th>PRECIO</th>
@@ -64,7 +76,7 @@
                             $extra=$row['objeto_extra'];
                         
                         ?>
-                    <tr>
+                    <tr class="table-success">
                         <td> <?php echo $id_producto; ?></td>
                         <td> <?php echo $precio; ?></td>
                         <td> <?php echo $color; ?></td>

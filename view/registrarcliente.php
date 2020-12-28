@@ -11,6 +11,40 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Registrar Cliente</title>
 </head>
+<style>
+    body{
+        background: gray;
+    }
+form{
+    color: black;   
+
+    margin-left: 480px;
+    margin-top: 50px;
+    border: 3px solid #f1f1f1;
+    background-image: linear-gradient(to right bottom, #356dbb, #3666a9, #385f96, #395885, #3a5173);
+    border-radius: 10px;
+
+}
+p{
+    font-size: 25px;
+    text-align: center;
+}
+#btnregistrar{
+    background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+#btnregistrar:hover {
+  opacity: 0.8;
+}
+
+
+
+</style>
 <body>
     <?php $message=""; $class=""; ?>
     <?php
@@ -46,11 +80,13 @@
     ?>
     <div class="<?php echo $class?>">
 				  <?php echo $message;?>
-				</div>	
-    <form method="POST">
-        <div>
+                </div>	
+                
+        <div class="form-group">
             <a href="./cliente.php"><button type="button"class="btn btn-outline-succes">Regresar</button></a>
         </div>
+    <form method="POST" class="container">
+        
         <p>Registrar</p>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -87,7 +123,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <button type="submit" id="btnregistrar"class="btn btn-primary">Registrarse</button>
         </div>
     </form>
 </body>

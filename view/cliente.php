@@ -12,6 +12,48 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
     <title>Login Cliente</title>
 </head>
+<style>
+    form{
+    color: black;
+    margin-left: 480px;
+    margin-top: 50px;
+    border: 3px solid #f1f1f1;
+    background-image: linear-gradient(to right bottom, #1071bc, #5672c5, #8272c8, #a771c7, #c870c0);
+    border-radius: 10px;
+
+}
+p{
+    font-size: 30px;
+    text-align: center;
+}
+#btnentrar{
+    background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+#btnentrar:hover {
+  opacity: 0.8;
+}
+a{
+    position: relative;
+    margin-left: 530px;
+}
+#logo{
+    width: 200px;
+    height: 180px;
+    margin-left: 470px;
+    border: 3px solid black;
+    border-radius: 50%;
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+}
+</style>
 <body>
 <?php
 
@@ -100,11 +142,12 @@
             </div>
 
     <header>
-    <form method="POST">
-        <div>
-            <a href="./index.php"><button type="button"class="btn btn-outline-succes">Regresar</button></a>
-        </div>
-        <h>Login</h>
+    <div>
+        <a href="./index.php"><button class="btn btn-   success">Regresar</button></a>
+    </div>
+    <form method="POST" class="container">
+        <img id="logo"src="./img/loginusuario.png" alt="">
+        <p>Login</p>
         <div class="form-group" >
             <div class="form-group">
             <label for="inputEmail4" >Email</label>
@@ -115,7 +158,7 @@
             <input type="password" class="form-control m-3" id="contraseña" name="contraseña">
             </div>
         </div>
-        <button class="btn btn-primary">Sign in</button>
+        <button class="btn btn-primary" id="btnentrar">Sign in</button>
     
         <div class="form-group">
             <a href="./registrarcliente.php" class="m-3">Registrarse</a>

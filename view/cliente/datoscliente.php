@@ -22,7 +22,10 @@ if(empty($_SESSION['active']))
 </head>
 <body>
     <h1>Datos personales</h1>
-    <table>
+    <div >
+        <a type="button" href="./indexcliente.php" class="btn btn-success">Atras</a>
+    </div>
+    <table class="table table-bordered">
         <tr>
             <th>DNI</th>
             <th>Nombres</th>
@@ -42,7 +45,7 @@ if(empty($_SESSION['active']))
             mysqli_select_db($conexion,'bicicleta') or die ("no se pudo conectar a la base de datos o no existe");
             $dni=$_SESSION['DNI'];
             $consulta="select p.DNI,p.nombres,p.primero_apellido,p.segundo_apellido,p.contraseña,pce.correo_electronico,
-            pt.telefono,u.presupuesto
+            pt.telefono,u.presuspuesto
             from persona p
             inner join persona_correo_electronico pce
             on p.DNI=pce.DNI_persona
@@ -52,7 +55,7 @@ if(empty($_SESSION['active']))
             on p.DNI=u.DNI
             where p.DNI=$dni
             group by p.DNI;";
-            $query=mysqli_query($conexion,$consulta) or die("error");
+            $query=mysqli_query($conexion,$consulta) or die("error1");
             while($data=mysqli_fetch_array($query))
             {
                 $DNI=$data['DNI'];
@@ -62,7 +65,7 @@ if(empty($_SESSION['active']))
                 $correo_electronico=$data['correo_electronico'];
                 $contraseña=$data['contraseña'];
                 $telefono=$data['telefono'];
-                $telefono=$data['presupuesto'];
+                $telefono=$data['presuspuesto'];
             
             ?>
             <tr>
@@ -73,10 +76,9 @@ if(empty($_SESSION['active']))
                 <td><?php echo $data['contraseña']?></td>
                 <td><?php echo $data['correo_electronico']?></td>
                 <td><?php echo $data['telefono']?></td>
-                <th><?php echo $data['presupuesto']?></th>
+                <th><?php echo $data['presuspuesto']?></th>
                 <td>
-                <a href="./actualizardatos.php?DNI=<?php echo $DNI;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-
+                <a href="./actualizardatos.php?DNI=<?php echo $DNI;?>" class="edit" title="Editar" data-toggle="tooltip">Actualizar</i></a>
                 </td>
             </tr>
 

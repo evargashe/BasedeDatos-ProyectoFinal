@@ -11,22 +11,25 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" id="editar"href="crud/bicicleta_montañera/insertar.php">Insertar bicicleta Montañera</a>
+        <a class="nav-link" id="editar"href="bicicleta_montañera/insertar.php">Insertar bicicleta Montañera</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="eliminar" href="crud/bicicleta_infantil/insertar.php">Insertar bicicleta infantil </a>
+        <a class="nav-link" id="eliminar" href="bicicleta_infantil/insertar.php">Insertar bicicleta infantil </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link"id="mostrar" href="crud/bicicleta_urbana/insertar.php">Insertar bicicleta urbana</a>
+        <a class="nav-link"id="mostrar" href="bicicleta_urbana/insertar.php">Insertar bicicleta urbana</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="insertar" href="crud/bicicleta_freestyle/insertar.php">Insertar bicicleta freestyle</a>
+        <a class="nav-link" id="insertar" href="bicicleta_freestyle/insertar.php">Insertar bicicleta freestyle</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="atras" href="../adminindex.php">Volver </a>
     </li>
 </ul>
 </nav>
 <div id="page"></div>
 </body>
-<script>
+<!-- <script>
     jQuery(document).ready(function($){
       $("a").click(function(event){
          link=$(this).attr("href");
@@ -46,5 +49,5 @@
       })
 
    })
-</script>
+</script> -->
 </html>

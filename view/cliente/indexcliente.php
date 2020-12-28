@@ -46,10 +46,13 @@ if(empty($_SESSION['active']))
             <a class="nav-link"id="mostrar" href="./mostrar.php">Mostrar Productos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="insertar" href="./datoscliente.php">Datos usuario</a>
+            <a class="nav-link" id="datos" href="./datoscliente.php">Datos usuario</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="insertar" href="./salirindexcliente.php">Salir</a>
+            <a class="nav-link" id="listado" href="./listapedidos.php">Listado de pedidos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="salir" href="./salirindexcliente.php">Salir</a>
         </li>
         
     </ul>

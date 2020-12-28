@@ -5,6 +5,19 @@ if(empty($_SESSION['active']))
     header('location: ./loginadmin.php');
 }
 ?>
+<?php
+     $conexion = mysqli_connect(
+        'localhost:8080',
+        'root',
+        'andre123') or die ("problemas en la conexion");
+    mysqli_select_db($conexion,'bicicleta') or die ("no se pudo conectar a la base de datos o no existe");
+    
+        $cons="select count(id_producto)
+        from producto";
+        $query=mysqli_query($conexion,$cons) or die("error");
+        $query=mysqli_fetch_array($query);
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,17 +34,27 @@ if(empty($_SESSION['active']))
     <li class="nav-item">
         <a class="nav-link"id="mostrar" href="crud/mostrar.php">Mostrar</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" id="insertar" href="crud/insertar.php">Insertar</a>
+    </li> -->
+    <li class="nav-item">
+        <a class="nav-link" id="lista" href="crud/listadoclientes.php">Ver pedido de cliente</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="saliradmin.php">Salir</a>
     </li>
 </ul>
 </nav>
-<div id="page"></div>
+<div>
+    <h1>Usted tiene </h1>
+    <h1>
+        <?php  echo $query['count(id_producto)'] ?>
+
+    </h1>
+    <h1>Productos en total</h1>
+</div>
 </body>
-<script>
+<!-- <script>
     jQuery(document).ready(function($){
       $("a").click(function(event){
          link=$(this).attr("href");
@@ -51,5 +74,5 @@ if(empty($_SESSION['active']))
       })
 
    })
-</script>
+</script> -->
 </html>

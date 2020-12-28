@@ -94,6 +94,43 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
     <title>Login Admin</title>
 </head>
+<style>
+form{
+margin-left: 500px;
+margin-top: 50px;
+border: 3px solid #f1f1f1;
+background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+color: black;
+}
+p{
+font-size: 30px;
+text-align: center;
+}
+#btnentrar{
+background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+}
+#btnentrar:hover {
+opacity: 0.8;
+}
+#logo{
+    height: 150px;
+    width: 150px;
+    margin-left: 500px;
+    border: 3px solid black;
+    border-radius: 50%;
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+}
+
+</style>
 <body>
 
 
@@ -101,8 +138,10 @@
               <?php echo $message;?>
             </div>
 
-    <h1>Login Administrador</h1>
-    <form  method="post">
+    
+    <form  method="post" class="container">
+        <img id="logo" src="./img/administrador.jpg" alt="logo">
+    <p>Login Administrador</p>
         <div class="form-group row">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
@@ -115,7 +154,7 @@
                 <input type="password" name="contraseña"class="form-control" id="password" placeholder="password">
             </div>
         </div>
-        <button type="submit" onclick="location.href='adminindex.php'"class="btn btn-primary">Sign in</button>
+        <button type="submit" id="btnentrar" onclick="location.href='adminindex.php'"class="btn btn-primary">Sign in</button>
     </form>
     <a class="btn btn-primary" href="./index.php" role="button">Volver</a>
 </body>

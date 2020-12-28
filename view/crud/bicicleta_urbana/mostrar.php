@@ -14,9 +14,9 @@
     <title>Mostrar bicicleta urbana</title>
 </head>
 <style>
-    img{
-	width: 100%;
-	height: 100%;
+    #imagen{
+        width: 150px;
+        height: 150px;
     }
 </style>
 <body>
@@ -28,7 +28,13 @@
             'andre123') or die ("problemas en la conexion");
         mysqli_select_db($conexion,'bicicleta') or die ("no se pudo conectar a la base de datos o no existe");
         
+    ?><div class="col-sm-4">
+                        <a href="../mostrar.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Regresar</a>
+    </div>
+    <?php
+        require_once('insertar.php');
     ?>
+    
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
@@ -44,7 +50,7 @@
 
             ?>
             <table class="table table-bordered">
-                <thead>
+                <thead class="thead-dark">
                     <tr>
                         <th>ID PRODUCTO</th>
                         <th>PRECIO</th>
@@ -65,13 +71,13 @@
                                 $foto='img/images.jpg';
                             }
                         ?>
-                    <tr>
+                    <tr class="table-success">
                         <td> <?php echo $row['id_producto']; ?></td>
                         <td> <?php echo $row['precio']; ?></td>
                         <td> <?php echo $row['color']; ?></td>
                         <td> <?php echo $row['material']; ?></td>
                         <td> <?php echo $row['objeto_extra']; ?></td>
-                        <td><img src="<?php echo $foto;?>" alt="<?php echo $row['foto'];?>"></td>
+                        <td><img id="imagen"src="<?php echo $foto;?>" alt="<?php echo $row['foto'];?>"></td>
                         <td>
                         <a href="editar.php?id_producto=<?php echo $id_producto;?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                         <a href="eliminar.php?id_producto=<?php echo $id_producto;?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>

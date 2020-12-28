@@ -64,12 +64,14 @@
                     }
                     $message= "Datos insertados con éxito";
                     $class="alert alert-success";
-                    echo "<meta http-equiv='refresh' content='2;url= ../insertar.php'/>";
+                    echo "<meta http-equiv='refresh' content='2;url=../mostrar.php'/>";
+
 
                 }else{
                     $message="No se pudieron insertar los datos";
                     $class="alert alert-danger";
-                    echo "<meta http-equiv='refresh' content='2;url=../insertar.php'/>";
+                    echo "<meta http-equiv='refresh' content='2;url=../mostrar.php'/>";
+
 
                 } 
             }
